@@ -53,6 +53,7 @@ typedef void (^failure)();
 + (NSString*) formGetQueryFromDict:(NSDictionary*)dict;
 + (NSString*) encodeURI:(NSString*)stringToEncode;
 + (NSString*) encodeJSONDictionaryFromNSDictionary:(NSDictionary*)dict;
++ (NSString*) decodeHTMLEntitiesFrom:(NSString*)string;
 + (BOOL) isValidURL:(NSObject*) urlObject;
 
 ////////////////////////////////////////////////////////////////////////////////
