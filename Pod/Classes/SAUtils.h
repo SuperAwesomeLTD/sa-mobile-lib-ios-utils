@@ -43,6 +43,7 @@ typedef void (^failure)();
 
 + (SASystemSize) getSystemSize;
 + (NSString*) getVerboseSystemDetails;
++ (NSString*) getFilePathForName:(NSString*)name type:(NSString*)type andBundle:(NSString*)bundleName;
 
 ////////////////////////////////////////////////////////////////////////////////
 // URL and Network request helper classes

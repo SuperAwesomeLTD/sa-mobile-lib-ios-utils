@@ -86,6 +86,13 @@
     }
 }
 
++ (NSString*) getFilePathForName:(NSString*)name type:(NSString*)type andBundle:(NSString*)bundleName {
+    NSBundle *podBundle = [NSBundle bundleForClass:self.classForCoder];
+    NSURL *bundleUrl = [podBundle URLForResource:bundleName withExtension:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithURL:bundleUrl];
+    return [bundle pathForResource:name ofType:type];
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // URL and Network request helper classes
 ////////////////////////////////////////////////////////////////////////////////
