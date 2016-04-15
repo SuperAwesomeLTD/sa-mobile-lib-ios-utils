@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 		       SAUtils is a library containing network and utility functions needed by the SDK.
                        DESC
   s.homepage         = "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils"
-  s.license          = { :type => "Apache License", :file => "LICENSE" }
+  s.license          = { :type => "GNU GENERAL PUBLIC LICENSE Version 3", :file => "LICENSE" }
   s.author           = { "Gabriel Coman" => "gabriel.coman@superawesome.tv" }
   s.source           = { :git => "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils.git", :tag => "1.0.4" }
   s.platform     = :ios, '6.0'
