@@ -25,12 +25,21 @@ typedef void (^downloadSuccess)(NSString *fpath);
 + (SAFileDownloader*) getInstance;
 
 /**
+ *  Download a file from the network
+ *
+ *  @param url the remote URL of the file
+ *
+ *  @return returns the filepath of the new file, on disk
+ */
+- (NSString*) downloadFileSync:(NSString*)url;
+
+/**
  *  Function that downloads a file and saves it to the documents directory
  *
  *  @param url     the remote URL of the file
  *  @param success a success callback with the file's path
  *  @param failure a failure callback in case file could not be donwloaded
  */
-- (void) downloadFile:(NSString*)url withSuccess:(downloadSuccess)success orFailure:(failure)failure;
+- (void) downloadFileAsync:(NSString*)url withSuccess:(downloadSuccess)success orFailure:(failure)failure;
 
 @end

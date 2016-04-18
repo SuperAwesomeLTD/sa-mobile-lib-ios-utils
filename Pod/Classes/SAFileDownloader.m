@@ -95,7 +95,43 @@
     return self;
 }
 
-- (void) downloadFile:(NSString *)url withSuccess:(downloadSuccess)success orFailure:(failure)failure {
+- (NSString*) downloadFileSync:(NSString *)url {
+    // file data
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
+    
+    // file data
+    if (data != NULL) {
+        NSString *key = [SAUtils generateUniqueKey];
+        NSString *filePath = [NSString stringWithFormat:@"samov_%@.mp4", key];
+        NSString *fullFilePath = [SAUtils filePathInDocuments:filePath];
+        NSError *fileError = NULL;
+        if (filePath != NULL) {
+            [data writeToFile:fullFilePath options:NSDataWritingAtomic error:&fileError];
+        }
+        // file written ok
+        if (fileError == NULL) {
+            // set the new fobject
+            SAFileObject *fobject = [SAFileObject fileObjectWithKey:key andUrl:url andPath:filePath];
+            [_fileStore setObject:fobject forKey:key];
+            NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:_fileStore];
+            [_defs setObject:encodedObject forKey:SA_FILE_STORE];
+            [_defs synchronize];
+            
+            // call success
+            return filePath;
+        }
+        // failure to write file
+        else {
+            return NULL;
+        }
+    }
+    // the response will be Null
+    else {
+        return NULL;
+    }
+}
+
+- (void) downloadFileAsync:(NSString *)url withSuccess:(downloadSuccess)success orFailure:(failure)failure {
     
     // form the URL & request
     NSURL *URL = [NSURL URLWithString:url];
@@ -118,7 +154,7 @@
             NSString *fullFilePath = [SAUtils filePathInDocuments:filePath];
             NSError *fileError = NULL;
             if (filePath != NULL) {
-                [data writeToFile:fullFilePath options:NSDataWritingAtomic error:&error];
+                [data writeToFile:fullFilePath options:NSDataWritingAtomic error:&fileError];
             }
             // file written ok
             if (fileError == NULL) {
