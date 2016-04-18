@@ -110,10 +110,14 @@
     return [bundle pathForResource:name ofType:type];
 }
 
-+ (NSString*) filePathInDocuments:(NSString*)fpath {
++ (NSString *) getDocumentsDirectory {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *basePath = paths.firstObject;
-    return [basePath stringByAppendingPathComponent:fpath];
+    return basePath;
+}
+
++ (NSString*) filePathInDocuments:(NSString*)fpath {
+    return [[self getDocumentsDirectory] stringByAppendingPathComponent:fpath];
 }
 
 ////////////////////////////////////////////////////////////////////////////////

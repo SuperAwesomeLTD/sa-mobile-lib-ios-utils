@@ -155,6 +155,9 @@
         
         if ([_fileManager fileExistsAtPath:fullFilePath] && [_fileManager isDeletableFileAtPath:fullFilePath]) {
             [_fileManager removeItemAtPath:fullFilePath error:nil];
+            NSLog(@"Deleted %@ from docs dir", fobject.filePath);
+        } else {
+            NSLog(@"Could not delete %@ from docs dir", fobject.filePath);
         }
     }
     
