@@ -70,6 +70,23 @@
     return nil;
 }
 
++ (NSString*) generateUniqueKey {
+    // constants
+    const NSString *alphabet  = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXZY0123456789";
+    const NSInteger length = [alphabet length];
+    const NSInteger dauLength = 32;
+    
+    // create the string
+    NSMutableString *s = [NSMutableString stringWithCapacity:20];
+    for (NSUInteger i = 0U; i < dauLength; i++) {
+        u_int32_t r = arc4random() % length;
+        unichar c = [alphabet characterAtIndex:r];
+        [s appendFormat:@"%C", c];
+    }
+    
+    return s;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // System type functions
 ////////////////////////////////////////////////////////////////////////////////
@@ -91,6 +108,12 @@
     NSURL *bundleUrl = [podBundle URLForResource:bundleName withExtension:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithURL:bundleUrl];
     return [bundle pathForResource:name ofType:type];
+}
+
++ (NSString*) filePathInDocuments:(NSString*)fpath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = paths.firstObject;
+    return [basePath stringByAppendingPathComponent:fpath];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -187,7 +210,6 @@
     // create the request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:url];
-    
     [request setValue:[self getUserAgent] forHTTPHeaderField:@"User-Agent"];
     [request setHTTPMethod:@"GET"];
     

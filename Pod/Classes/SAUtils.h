@@ -36,6 +36,7 @@ typedef void (^failure)();
 + (CGRect) mapOldFrame:(CGRect)frame toNewFrame:(CGRect)oldframe;
 + (NSInteger) randomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max;
 + (NSString*) findSubstringFrom:(NSString*)source betweenStart:(NSString*)start andEnd:(NSString*)end;
++ (NSString*) generateUniqueKey;
 
 ////////////////////////////////////////////////////////////////////////////////
 // System type functions
@@ -44,6 +45,7 @@ typedef void (^failure)();
 + (SASystemSize) getSystemSize;
 + (NSString*) getVerboseSystemDetails;
 + (NSString*) filePathForName:(NSString*)name type:(NSString*)type andBundle:(NSString*)bundleName andClass:(Class)className;
++ (NSString*) filePathInDocuments:(NSString*)fpath;
 
 ////////////////////////////////////////////////////////////////////////////////
 // URL and Network request helper classes
