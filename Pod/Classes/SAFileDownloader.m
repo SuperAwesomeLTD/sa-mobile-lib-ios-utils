@@ -12,47 +12,6 @@
 #define SA_FILE_STORE @"SA_FILE_STORE"
 
 //
-// SuperAwesome file object
-@interface SAFileObject : NSObject <NSCoding>
-
-// members
-@property (nonatomic, strong) NSString *key;
-@property (nonatomic, strong) NSString *remoteURL;
-@property (nonatomic, strong) NSString *filePath;
-
-// factory contructor
-+ (SAFileObject*) fileObjectWithKey:(NSString*)key andUrl:(NSString*)url andPath:(NSString*)path;
-
-@end
-
-@implementation SAFileObject
-
-+ (SAFileObject*) fileObjectWithKey:(NSString *)key andUrl:(NSString *)url andPath:(NSString *)path {
-    SAFileObject* fobject = [[SAFileObject alloc] init];
-    fobject.key = key;
-    fobject.remoteURL = url;
-    fobject.filePath = path;
-    return fobject;
-}
-
-- (void) encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:_key forKey:@"key"];
-    [aCoder encodeObject:_filePath forKey:@"filePath"];
-    [aCoder encodeObject:_remoteURL forKey:@"remoteURL"];
-}
-
-- (id) initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super init]){
-        _key = [aDecoder decodeObjectForKey:@"key"];
-        _filePath = [aDecoder decodeObjectForKey:@"filePath"];
-        _remoteURL = [aDecoder decodeObjectForKey:@"remoteURL"];
-    }
-    return self;
-}
-
-@end
-
-//
 // private vars for SAFileDownloader
 @interface SAFileDownloader ()
 // dictionary that holds all the files currently saved on disk as part of the SDK
@@ -83,8 +42,7 @@
         
         // get the file store
         if ([_defs objectForKey:SA_FILE_STORE]) {
-            NSData *encodedObject = [_defs objectForKey:SA_FILE_STORE];
-            _fileStore = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+            _fileStore = [[_defs objectForKey:SA_FILE_STORE] mutableCopy];
         } else {
             _fileStore = [[NSMutableDictionary alloc] init];
         }
@@ -110,11 +68,9 @@
         }
         // file written ok
         if (fileError == NULL) {
-            // set the new fobject
-            SAFileObject *fobject = [SAFileObject fileObjectWithKey:key andUrl:url andPath:filePath];
-            [_fileStore setObject:fobject forKey:key];
-            NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:_fileStore];
-            [_defs setObject:encodedObject forKey:SA_FILE_STORE];
+            // save
+            [_fileStore setObject:filePath forKey:key];
+            [_defs setObject:_fileStore forKey:SA_FILE_STORE];
             [_defs synchronize];
             
             // call success
@@ -158,11 +114,9 @@
             }
             // file written ok
             if (fileError == NULL) {
-                // set the new fobject
-                SAFileObject *fobject = [SAFileObject fileObjectWithKey:key andUrl:url andPath:filePath];
-                [_fileStore setObject:fobject forKey:key];
-                NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:_fileStore];
-                [_defs setObject:encodedObject forKey:SA_FILE_STORE];
+                // save
+                [_fileStore setObject:filePath forKey:key];
+                [_defs setObject:_fileStore forKey:SA_FILE_STORE];
                 [_defs synchronize];
                 
                 // call success
@@ -184,21 +138,22 @@
 #pragma mark Aux Functions
 
 - (void) cleanup {
-    // cleanup all files from documents directory
+    
     for (NSString *key in _fileStore.allKeys) {
-        SAFileObject *fobject = (SAFileObject*)[_fileStore objectForKey:key];
-        NSString *fullFilePath = [SAUtils filePathInDocuments:fobject.filePath];
-        
+        NSString *filePath = [_fileStore objectForKey:key];
+        NSString *fullFilePath = [SAUtils filePathInDocuments:filePath];
         if ([_fileManager fileExistsAtPath:fullFilePath] && [_fileManager isDeletableFileAtPath:fullFilePath]) {
             [_fileManager removeItemAtPath:fullFilePath error:nil];
-            NSLog(@"Deleted %@ from docs dir", fobject.filePath);
+            NSLog(@"Deleted %@ from docs dir", filePath);
         } else {
-            NSLog(@"Could not delete %@ from docs dir", fobject.filePath);
+            NSLog(@"Could not delete %@ from docs dir", filePath);
         }
     }
     
-    // and remove all objects
+    // remove
     [_fileStore removeAllObjects];
+    [_defs removeObjectForKey:SA_FILE_STORE];
+    [_defs synchronize];
 }
 
 @end
