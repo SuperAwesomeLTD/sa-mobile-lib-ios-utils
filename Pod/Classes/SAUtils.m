@@ -104,6 +104,10 @@
 }
 
 + (NSString*) filePathForName:(NSString*)name type:(NSString*)type andBundle:(NSString*)bundleName andClass:(Class)className {
+//    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
+//    NSString *receivedImgName = [[NSBundle bundleWithPath:bundlePath] pathForResource:name ofType:type];
+//    return receivedImgName;
+    
     NSBundle *podBundle = [NSBundle bundleForClass:className];
     NSURL *bundleUrl = [podBundle URLForResource:bundleName withExtension:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithURL:bundleUrl];
@@ -111,6 +115,8 @@
 }
 
 + (NSString *) getDocumentsDirectory {
+    
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *basePath = paths.firstObject;
     return basePath;
