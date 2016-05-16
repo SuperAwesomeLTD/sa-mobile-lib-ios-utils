@@ -127,13 +127,13 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
                 [_defs setObject:_fileStore forKey:SA_FILE_STORE];
                 [_defs synchronize];
                 
-                NSLog(@"[OK] %@ ==> %@", url, location);
+                NSLog(@"[Download OK] %@ ==> %@", url, fpath);
                 // call success
                 success();
             }
             // failure to write file
             else {
-                NSLog(@"[NOK] %@ ==> %@", url, location);
+                NSLog(@"[Download NOK] %@ ==> %@", url, fpath);
                 failure();
             }
         }
