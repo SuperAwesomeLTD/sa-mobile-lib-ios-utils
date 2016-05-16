@@ -85,7 +85,7 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
             NSString *location = file.location;
             
             [self downloadFileFrom:url to:location withSuccess:^(NSString *fpath) {
-                NSLog(@"[%ld/%ld] Downloaded %@ to %@", index+1, end, url, location);
+                NSLog(@"Trying [%ld/%ld] %@", index+1, end, url);
                 [self downloadFileArray:files startingFrom:(index+1) withSuccess:done];
             } orFailure:^{
                 [self downloadFileArray:files startingFrom:(index+1) withSuccess:done];
@@ -127,11 +127,13 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
                 [_defs setObject:_fileStore forKey:SA_FILE_STORE];
                 [_defs synchronize];
                 
+                NSLog(@"[OK] %@ ==> %@", url, location);
                 // call success
                 success();
             }
             // failure to write file
             else {
+                NSLog(@"[NOK] %@ ==> %@", url, location);
                 failure();
             }
         }
