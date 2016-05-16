@@ -34,6 +34,16 @@ typedef void (^downloadFinish)();
 - (NSString*) getDiskLocation;
 
 /**
+ *  Downloa a file from a remote URL to a predefined file path
+ *
+ *  @param url     the remote URL
+ *  @param fpath   the predefine lication
+ *  @param success success callback
+ *  @param failure failure callback
+ */
+- (void) downloadFileFrom:(NSString*)url to:(NSString*)fpath withSuccess:(downloadFinish)success orFailure:(failure)failure;
+
+/**
  *  Download an array of files, starting with a positive integer
  *
  *  @param files files array of dictionaries

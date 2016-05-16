@@ -98,18 +98,6 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
     }
 }
 
-#pragma mark Private Functions
-
-- (NSString*) getKeyFromLocation:(NSString*)location {
-    if (!location) return NULL;
-    NSArray *c1 = [location componentsSeparatedByString:@"_"];
-    if ([c1 count] < 2) return NULL;
-    NSString *key1 = [c1 objectAtIndex:1];
-    NSArray *c2 = [key1 componentsSeparatedByString:@"."];
-    if ([c2 count] < 1) return NULL;
-    return [c2 firstObject];
-}
-
 - (void) downloadFileFrom:(NSString*)url to:(NSString*)fpath withSuccess:(downloadFinish)success orFailure:(failure)failure {
     
     // form the URL & request
@@ -152,6 +140,18 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:resp2];
     [task resume];
+}
+
+#pragma mark Private Functions
+
+- (NSString*) getKeyFromLocation:(NSString*)location {
+    if (!location) return NULL;
+    NSArray *c1 = [location componentsSeparatedByString:@"_"];
+    if ([c1 count] < 2) return NULL;
+    NSString *key1 = [c1 objectAtIndex:1];
+    NSArray *c2 = [key1 componentsSeparatedByString:@"."];
+    if ([c2 count] < 1) return NULL;
+    return [c2 firstObject];
 }
 
 - (void) cleanup {
