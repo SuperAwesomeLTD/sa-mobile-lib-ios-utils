@@ -222,31 +222,32 @@
     // form the response block to the POST
     netresponse resp = ^(NSData * data, NSURLResponse * response, NSError * error) {
         
-        if (error != nil) {
+        NSInteger status = ((NSHTTPURLResponse*)response).statusCode;
+        
+        if (error || status != 200) {
+            // logging
             NSLog(@"Network error for %@ - %@", _surl, error);
-            if (failure) {
-                failure();
-            }
-        }
-        else {
-            // only if status code is 200
-            if (((NSHTTPURLResponse*)response).statusCode == 200) {
-                NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                // internal logging
-                if (str.length >= 10){
-                    str = [[str substringToIndex:9] stringByAppendingString:@" ... /truncated"];
-                }
-                NSLog(@"Success: %@ ==> %@", _surl, str);
-                if (success){
-                    success(data);
-                }
-            }
-            // else call it failure
-            else {
+            
+            // send message
+            dispatch_async(dispatch_get_main_queue(), ^{
                 if (failure) {
                     failure();
                 }
-            }
+            });
+        }
+        else {
+            
+            // logging
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if (str.length >= 10){  str = [[str substringToIndex:9] stringByAppendingString:@" ... /truncated"]; }
+            NSLog(@"Success: %@ ==> %@", _surl, str);
+            
+            // send message
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success){
+                    success(data);
+                }
+            });
         }
     };
     

@@ -13,11 +13,6 @@
 // callback for generic success
 typedef void (^downloadFinish)();
 
-@interface SAFileObject : NSObject
-@property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSString *location;
-@end
-
 //
 // class that deals with downloading (and cleaning-up) files
 @interface SAFileDownloader : NSObject
@@ -42,14 +37,5 @@ typedef void (^downloadFinish)();
  *  @param failure failure callback
  */
 - (void) downloadFileFrom:(NSString*)url to:(NSString*)fpath withSuccess:(downloadFinish)success orFailure:(failure)failure;
-
-/**
- *  Download an array of files, starting with a positive integer
- *
- *  @param files files array of dictionaries
- *  @param index current index
- *  @param done  final finish
- */
-- (void) downloadFileArray:(NSArray*)files startingFrom:(NSUInteger)index withSuccess:(downloadFinish)done;
 
 @end

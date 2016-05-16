@@ -16,10 +16,6 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
 #define PAIR_KEY @"Key"
 #define PAIR_PATH @"FPath"
 
-// the file object
-@implementation SAFileObject
-@end
-
 //
 // private vars for SAFileDownloader
 @interface SAFileDownloader ()
@@ -70,34 +66,6 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
     return [NSString stringWithFormat:@"samov_%@.mp4", [SAUtils generateUniqueKey]];
 }
 
-- (void) downloadFileArray:(NSArray*)files startingFrom:(NSUInteger)index withSuccess:(downloadFinish)done {
-    __block NSInteger end = [files count];
-    
-    if (index >= end) {
-        done();
-    } else {
-        id temporary = files[index];
-        
-        // all is OK
-        if ([temporary isKindOfClass:[SAFileObject class]]){
-            SAFileObject *file = (SAFileObject*)temporary;
-            NSString *url = file.url;
-            NSString *location = file.location;
-            
-            [self downloadFileFrom:url to:location withSuccess:^(NSString *fpath) {
-                NSLog(@"Trying [%ld/%ld] %@", index+1, end, url);
-                [self downloadFileArray:files startingFrom:(index+1) withSuccess:done];
-            } orFailure:^{
-                [self downloadFileArray:files startingFrom:(index+1) withSuccess:done];
-            }];
-        }
-        // move forward, this is a corrupted file
-        else {
-            [self downloadFileArray:files startingFrom:(index+1) withSuccess:done];
-        }
-    }
-}
-
 - (void) downloadFileFrom:(NSString*)url to:(NSString*)fpath withSuccess:(downloadFinish)success orFailure:(failure)failure {
     
     // form the URL & request
@@ -111,7 +79,11 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
         
         // check for whatever error
         if (error != NULL || statusCode != 200) {
-            failure();
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (failure) {
+                    failure();
+                }
+            });
         }
         // goto success
         else {
@@ -128,13 +100,24 @@ typedef void (^downloadresponse)(NSURL * location, NSURLResponse * response, NSE
                 [_defs synchronize];
                 
                 NSLog(@"[Download OK] %@ ==> %@", url, fpath);
+                
                 // call success
-                success();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (success) {
+                        success();
+                    }
+                });
+                
             }
             // failure to write file
             else {
                 NSLog(@"[Download NOK] %@ ==> %@", url, fpath);
-                failure();
+                // call success
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (failure) {
+                        failure();
+                    }
+                });
             }
         }
     };
