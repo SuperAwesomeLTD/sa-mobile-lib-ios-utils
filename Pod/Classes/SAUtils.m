@@ -200,10 +200,6 @@
 // Aux network functions
 ////////////////////////////////////////////////////////////////////////////////
 
-+ (NSData*) sendSyncGETToEndpoint:(NSString *)endpoint {
-    return [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:endpoint]];
-}
-
 + (void) sendGETtoEndpoint:(NSString*)endpoint
              withQueryDict:(NSDictionary*)GETDict
                 andSuccess:(success)success
@@ -224,7 +220,7 @@
     [request setHTTPMethod:@"GET"];
     
     // form the response block to the POST
-    netresponse resp = ^(NSURLResponse * response, NSData * data, NSError * error) {
+    netresponse resp = ^(NSData * data, NSURLResponse * response, NSError * error) {
         
         if (error != nil) {
             NSLog(@"Network error for %@ - %@", _surl, error);
@@ -254,11 +250,9 @@
         }
     };
     
-    // make the request and get back the data
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue currentQueue]
-                           completionHandler:resp];
-    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:resp];
+    [task resume];
 }
 
 

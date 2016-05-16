@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-//
-// import SAUtils
 #import "SAUtils.h"
 
-//
-// callback for generic success with data
-typedef void (^downloadSuccess)(NSString *fpath);
+// callback for generic success
+typedef void (^downloadFinish)();
+
+@interface SAFileObject : NSObject
+@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *location;
+@end
 
 //
 // class that deals with downloading (and cleaning-up) files
@@ -26,21 +27,19 @@ typedef void (^downloadSuccess)(NSString *fpath);
 + (SAFileDownloader*) getInstance;
 
 /**
- *  Download a file from the network
+ *  Function that gets a new file location on disk
  *
- *  @param url the remote URL of the file
- *
- *  @return returns the filepath of the new file, on disk
+ *  @return a new file location
  */
-- (NSString*) downloadFileSync:(NSString*)url;
+- (NSString*) getDiskLocation;
 
 /**
- *  Function that downloads a file and saves it to the documents directory
+ *  Download an array of files, starting with a positive integer
  *
- *  @param url     the remote URL of the file
- *  @param success a success callback with the file's path
- *  @param failure a failure callback in case file could not be donwloaded
+ *  @param files files array of dictionaries
+ *  @param index current index
+ *  @param done  final finish
  */
-- (void) downloadFileAsync:(NSString*)url withSuccess:(downloadSuccess)success orFailure:(failure)failure;
+- (void) downloadFileArray:(NSArray*)files startingFrom:(NSUInteger)index withSuccess:(downloadFinish)done;
 
 @end

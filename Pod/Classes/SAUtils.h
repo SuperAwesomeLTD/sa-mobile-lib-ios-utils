@@ -20,7 +20,7 @@ typedef enum SASystemSize {
 }SASystemSize;
 
 // callback for iOS's own [NSURLConnection sendAsynchronousRequest:]
-typedef void (^netresponse)(NSURLResponse * response, NSData * data, NSError * error);
+typedef void (^netresponse)(NSData * data, NSURLResponse * response, NSError * error);
 
 // callback for generic success with data
 typedef void (^success)(NSData *data);
@@ -64,7 +64,6 @@ typedef void (^failure)();
 // Aux network functions
 ////////////////////////////////////////////////////////////////////////////////
 
-+ (NSData*) sendSyncGETToEndpoint:(NSString*)endpoint;
 + (void) sendGETtoEndpoint:(NSString*)endpoint withQueryDict:(NSDictionary*)GETDict andSuccess:(success)success orFailure:(failure)failure;
 
 @end
