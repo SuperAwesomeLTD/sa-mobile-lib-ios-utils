@@ -45,7 +45,6 @@ typedef void (^failure)();
 
 + (SASystemSize) getSystemSize;
 + (NSString*) getVerboseSystemDetails;
-+ (NSString*) filePathForName:(NSString*)name type:(NSString*)type andBundle:(NSString*)bundleName andClass:(Class)className;
 + (NSString*) filePathInDocuments:(NSString*)fpath;
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -2,7 +2,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "SAUtils"
-  s.version          = "1.1.5"
+  s.version          = "1.1.6"
+
   s.summary          = "General collection of SuperAwesome Utility functions for iOS"
   s.description      = <<-DESC
 		       SAUtils is a library containing network and utility functions needed by the SDK.
@@ -10,7 +11,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils"
   s.license          = { :type => "GNU GENERAL PUBLIC LICENSE Version 3", :file => "LICENSE" }
   s.author           = { "Gabriel Coman" => "gabriel.coman@superawesome.tv" }
-  s.source           = { :git => "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils.git", :tag => "1.1.5" }
+  s.source           = { :git => "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils.git", :tag => "1.1.6" }
   s.platform     = :ios, '6.0'
   s.requires_arc = true
   s.source_files = 'Pod/Classes/**/*'
