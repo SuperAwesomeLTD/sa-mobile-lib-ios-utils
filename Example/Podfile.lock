@@ -1,0 +1,14 @@
+PODS:
+  - SAUtils (1.0.4)
+
+DEPENDENCIES:
+  - SAUtils (from `../`)
+
+EXTERNAL SOURCES:
+  SAUtils:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SAUtils: 8319cef2086b0b37f5efc1528507440f945b73ae
+
+COCOAPODS: 0.38.2
