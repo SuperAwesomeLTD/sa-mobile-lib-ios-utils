@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		06A8660D6746670D6E437C43 /* Pods_SAUtils_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C0881C1E831ACB0DBD279A /* Pods_SAUtils_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1BE90C801D09745900F38E6D /* SAUtils_Aux_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C7F1D09745900F38E6D /* SAUtils_Aux_Tests.m */; };
+		1BE90C821D09746900F38E6D /* SAUtils_System_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C811D09746900F38E6D /* SAUtils_System_Tests.m */; };
+		1BE90C841D09747E00F38E6D /* SAUtils_Network_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C831D09747E00F38E6D /* SAUtils_Network_Tests.m */; };
+		1BE90C861D09749200F38E6D /* SAFileDownloader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C851D09749200F38E6D /* SAFileDownloader_Tests.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -37,6 +41,10 @@
 
 /* Begin PBXFileReference section */
 		10D1A6B9DACB567E66E51157 /* Pods-SAUtils_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAUtils_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAUtils_Example/Pods-SAUtils_Example.release.xcconfig"; sourceTree = "<group>"; };
+		1BE90C7F1D09745900F38E6D /* SAUtils_Aux_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUtils_Aux_Tests.m; sourceTree = "<group>"; };
+		1BE90C811D09746900F38E6D /* SAUtils_System_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUtils_System_Tests.m; sourceTree = "<group>"; };
+		1BE90C831D09747E00F38E6D /* SAUtils_Network_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUtils_Network_Tests.m; sourceTree = "<group>"; };
+		1BE90C851D09749200F38E6D /* SAFileDownloader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFileDownloader_Tests.m; sourceTree = "<group>"; };
 		37D963847959F93CF85C83D8 /* Pods-SAUtils_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAUtils_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAUtils_Tests/Pods-SAUtils_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		49C0881C1E831ACB0DBD279A /* Pods_SAUtils_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAUtils_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5FEC17ADDDC803311D98AE /* Pods-SAUtils_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAUtils_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SAUtils_Tests/Pods-SAUtils_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +165,10 @@
 			isa = PBXGroup;
 			children = (
 				6003F5BB195388D20070C39A /* Tests.m */,
+				1BE90C7F1D09745900F38E6D /* SAUtils_Aux_Tests.m */,
+				1BE90C811D09746900F38E6D /* SAUtils_System_Tests.m */,
+				1BE90C831D09747E00F38E6D /* SAUtils_Network_Tests.m */,
+				1BE90C851D09749200F38E6D /* SAFileDownloader_Tests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -400,6 +412,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE90C801D09745900F38E6D /* SAUtils_Aux_Tests.m in Sources */,
+				1BE90C861D09749200F38E6D /* SAFileDownloader_Tests.m in Sources */,
+				1BE90C821D09746900F38E6D /* SAUtils_System_Tests.m in Sources */,
+				1BE90C841D09747E00F38E6D /* SAUtils_Network_Tests.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
