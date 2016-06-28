@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SAUtils"
-  s.version          = "1.2.1"
+  s.version          = "1.2.2"
 
   s.summary          = "General collection of SuperAwesome Utility functions for iOS"
   s.description      = <<-DESC
@@ -11,11 +11,9 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils"
   s.license          = { :type => "GNU GENERAL PUBLIC LICENSE Version 3", :file => "LICENSE" }
   s.author           = { "Gabriel Coman" => "gabriel.coman@superawesome.tv" }
-  s.source           = { :git => "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils.git", :tag => "1.2.1" }
+  s.source           = { :git => "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils.git", :tag => "1.2.2" }
   s.platform     = :ios, '6.0'
   s.requires_arc = true
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'SAUtils' => ['Pod/Assets/*.png']
-  }
+  s.frameworks = 'SystemConfiguration'
 end

@@ -54,6 +54,8 @@
 //    [[SAFileDownloader getInstance] downloadFileArray:@[f1, f2] startingFrom:0 withSuccess:^{
 //        NSLog(@"Finished downloading files!");
 //    }];
+    
+    NSLog(@"Connectivity: %d", [SAUtils getNetworkConnectivity]);
 }
 
 - (void)didReceiveMemoryWarning

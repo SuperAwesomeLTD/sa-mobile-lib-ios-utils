@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SAUtils_Tests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SAUtils-SAUtils.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1C21CE7E6B453C51ED924BE5135B1E9E</key>
+		<key>403FDBAC560CECA700005CD2825C3B7B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>33522136193DEC0956222B2B392FCE1D</key>
+		<key>AB4776D75931E001E8712D9A11F5FA42</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>37EA053AD2415A051204515EE707DB27</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6437886C0A29B69032D95AE780B05511</key>
+		<key>DD042F20ADF2AD39D61DD09786CDFB38</key>
 		<dict>
 			<key>primary</key>
 			<true/>

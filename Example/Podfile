@@ -1,12 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
 
-target 'SAUtils_Example', :exclusive => true do
+target 'SAUtils_Example' do
   pod 'SAUtils', :path => '../'
 end
 
-target 'SAUtils_Tests', :exclusive => true do
-  pod 'SAUtils', :path => '../'
-
-  
-end
