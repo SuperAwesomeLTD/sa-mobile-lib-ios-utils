@@ -8,6 +8,8 @@
 
 #import "SAViewController.h"
 #import "SAUtils.h"
+#import "SAActivityView.h"
+#import "SAPopup.h"
 #import "SAExtensions.h"
 
 @interface SAViewController ()
@@ -22,10 +24,21 @@
     NSLog(@"Connectivity: %d", [SAUtils getNetworkConnectivity]);
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showActivityAction:(id)sender {
+    [[SAActivityView sharedManager] showActivityView];
+}
+
+- (IBAction)showPopupAction:(id)sender {
+    SAPopup *popup = [[SAPopup alloc] init];
+    [popup showWithTitle:@"Phone Number" andMessage:@"Please!" andOKTitle:@"Submit" andNOKTitle:@"Cancel" andTextField:true andKeyboardTyle:UIKeyboardTypePhonePad andOKBlock:^(NSString *popupMessage) {
+        
+    } andNOKBlock:^{
+        
+    }];
 }
 
 @end

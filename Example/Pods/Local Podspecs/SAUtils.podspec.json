@@ -1,6 +1,6 @@
 {
   "name": "SAUtils",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "summary": "General collection of SuperAwesome Utility functions for iOS",
   "description": "SAUtils is a library containing network and utility functions needed by the SDK.",
   "homepage": "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-utils.git",
-    "tag": "1.2.2"
+    "tag": "1.2.3"
   },
   "platforms": {
     "ios": "6.0"
