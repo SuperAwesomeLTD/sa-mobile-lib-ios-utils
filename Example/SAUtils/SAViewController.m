@@ -33,12 +33,7 @@
 }
 
 - (IBAction)showPopupAction:(id)sender {
-    SAPopup *popup = [[SAPopup alloc] init];
-    [popup showWithTitle:@"Phone Number" andMessage:@"Please!" andOKTitle:@"Submit" andNOKTitle:@"Cancel" andTextField:true andKeyboardTyle:UIKeyboardTypePhonePad andOKBlock:^(NSString *popupMessage) {
-        
-    } andNOKBlock:^{
-        
-    }];
+    [[SAPopup sharedManager] showWithTitle:@"Phone Number" andMessage:@"Please!" andOKTitle:@"Submit" andNOKTitle:nil andTextField:true andKeyboardTyle:UIKeyboardTypePhonePad andOKBlock:NULL andNOKBlock:NULL];
 }
 
 @end
