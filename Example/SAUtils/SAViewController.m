@@ -22,6 +22,16 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     NSLog(@"Connectivity: %d", [SAUtils getNetworkConnectivity]);
+    
+    NSArray *emails = @[@"test@mail.com", @"klskla", @"test@chimp.test.com", @"testy@rox.   "];
+    for (NSString *email in emails) {
+        NSLog(@"Email %@ is %d", email, [SAUtils isEmailValid:email]);
+    }
+    
+    NSArray *urls = @[@"https://superawesome.tv", @"jksajk", @"http:/john.doe", @"https://   test.com"];
+    for (NSString *url in urls) {
+        NSLog(@"Url %@ is %d", url, [SAUtils isValidURL:url]);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
