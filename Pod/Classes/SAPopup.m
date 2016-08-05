@@ -108,9 +108,10 @@
     
     if (_hasTextField) {
         __block UITextField *localTextField;
+        __block id safeSelf = self;
         [_kwsPopupController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
             localTextField = textField;
-            localTextField.keyboardType = _keyboardType;
+            localTextField.keyboardType = [safeSelf keyboardType];
         }];
     }
     
