@@ -14,6 +14,9 @@
 #import "SAExtensions.h"
 #import "SALogger.h"
 
+#define SA_OK_BUTTON 0
+#define SA_CANCEL_BUTTON 1
+
 // interface
 @interface SAPopup ()
 @property (nonatomic, strong) UIAlertController *kwsPopupController;
@@ -25,8 +28,7 @@
 @property (nonatomic, strong) NSString *nokTitle;
 @property (nonatomic, assign) BOOL hasTextField;
 @property (nonatomic, assign) UIKeyboardType keyboardType;
-@property (nonatomic, strong) okBlock okBlock;
-@property (nonatomic, strong) nokBlock nokBlock;
+@property (nonatomic, strong) pressed pressed;
 @end
 
 @implementation SAPopup
@@ -48,8 +50,7 @@
            andNOKTitle:(NSString*)nok
           andTextField:(BOOL)hasTextField
        andKeyboardTyle:(UIKeyboardType)keyboardType
-            andOKBlock:(okBlock)okBlock
-           andNOKBlock:(nokBlock)nokBlock{
+            andPressed:(pressed)pressed {
     
     _title = (title != NULL ? title : @"Title");
     _message = (message != NULL ? message : @"Alert");
@@ -57,8 +58,7 @@
     _nokTitle = nok;
     _hasTextField = hasTextField;
     _keyboardType = keyboardType;
-    _okBlock = (okBlock != NULL ? okBlock : ^(NSString* message) { });
-    _nokBlock = (nokBlock != NULL ? nokBlock : ^(){});
+    _pressed = (pressed != NULL ? pressed : ^(int button, NSString* message) { });
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
         [self showWithAlertController];
@@ -84,13 +84,13 @@
         if (_hasTextField) {
             UITextField *textField = [[_kwsPopupController textFields] firstObject];
             NSString *text = [textField text];
-            _okBlock(text);
+            _pressed(SA_OK_BUTTON, text);
         } else {
-            _okBlock(nil);
+            _pressed(SA_OK_BUTTON, nil);
         }
     };
     actionBlock iNOKBlock = ^(UIAlertAction *action) {
-        _nokBlock();
+        _pressed(SA_CANCEL_BUTTON, nil);
     };
     
     _kwsPopupController = [UIAlertController alertControllerWithTitle:_title
@@ -143,13 +143,13 @@
         if (_hasTextField) {
             UITextField *textField = [_kwsPopupAlertView textFieldAtIndex:0];
             NSString *text = [textField text];
-            _okBlock(text);
+            _pressed(SA_OK_BUTTON, text);
         } else {
-            _okBlock(nil);
+            _pressed(SA_OK_BUTTON, nil);
         }
     }
     else if (buttonIndex == 0){
-        _nokBlock();
+        _pressed(SA_CANCEL_BUTTON, nil);
     }
 }
 
