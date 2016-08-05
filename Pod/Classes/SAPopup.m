@@ -52,7 +52,7 @@
        andKeyboardTyle:(UIKeyboardType)keyboardType
             andPressed:(pressed)pressed {
     
-    _title = (title != NULL ? title : @"Title");
+    _title = (title != NULL ? title : @"Title");
     _message = (message != NULL ? message : @"Alert");
     _okTitle = (ok != NULL ? ok : @"OK");
     _nokTitle = nok;
