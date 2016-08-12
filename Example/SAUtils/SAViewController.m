@@ -32,6 +32,9 @@
     for (NSString *url in urls) {
         NSLog(@"Url %@ is %d", url, [SAUtils isValidURL:url]);
     }
+    
+    NSLog(@"User agent is %@", [SAUtils getUserAgent]);
+    NSLog(@"System size is %d", [SAUtils getSystemSize]);
 }
 
 - (void)didReceiveMemoryWarning {
