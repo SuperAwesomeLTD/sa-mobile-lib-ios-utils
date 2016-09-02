@@ -11,6 +11,7 @@
 #import "SAActivityView.h"
 #import "SAPopup.h"
 #import "SAExtensions.h"
+#import "TestClass.h"
 
 @interface SAViewController ()
 @end
@@ -35,6 +36,43 @@
     
     NSLog(@"User agent is %@", [SAUtils getUserAgent]);
     NSLog(@"System size is %d", [SAUtils getSystemSize]);
+    
+    NSLog(@"%@ - %@", NSClassFromString(@"TestClass"), NSClassFromString(@"ABC"));
+    
+    TestClass *tc = [[TestClass alloc] init];
+    
+    [SAUtils invoke:@"method1" onTarget:tc];
+    
+    NSValue *return1 = [SAUtils invoke:@"method2" onTarget:tc];
+    NSString *return1a;
+    [return1 getValue:&return1a];
+    NSLog(@"Return value is %@", return1a);
+    
+    NSValue *return2 = [SAUtils invoke:@"method3" onClass:@"TestClass"];
+    NSInteger return2a;
+    [return2 getValue:&return2a];
+    NSLog(@"Return value is %ld", (long)return2a);
+    
+    [SAUtils invoke:@"method4:" onClass:@"TestClass", @"Wultur"];
+    
+    [SAUtils invoke:@"method5:" onClass:@"TestClass", [NSValue valueWithCGRect:CGRectMake(0, 50, 100, 200)]];
+    
+    [SAUtils invoke:@"nonmethod" onClass:@"TestClass"];
+    [SAUtils invoke:@"nonmethod" onClass:@"ABC"];
+    [SAUtils invoke:@"method4" onClass:@"ABC"];
+
+    [self funcWithParam:[NSValue valueWithCGRect:CGRectMake(0,  5, 2, 3)]];
+}
+
+- (void) funcWithParam:(id) param {
+//    NSLog(@"Param %@", param);
+//    CGRect rparam = CGRectZero;
+//    NSValue *val = (NSValue*)param;
+//    [val getValue:&rparam];
+//    NSLog(@"%@", NSStringFromCGRect(rparam));
+//    void* rppp;
+//    [val getValue:&rppp];
+//    NSLog(@"%@", rppp);
 }
 
 - (void)didReceiveMemoryWarning {
