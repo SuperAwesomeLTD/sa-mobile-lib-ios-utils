@@ -649,7 +649,7 @@ UIColor *UIColorFromRGB(NSInteger red, NSInteger green, NSInteger blue) {
         
         // get arg list
         va_list args;
-        va_start(args, classy);
+        va_start(args, name);
         
         // start
         NSMethodSignature * signature = [classy methodSignatureForSelector:selector];
