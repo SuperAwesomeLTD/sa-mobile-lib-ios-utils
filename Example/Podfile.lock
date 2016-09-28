@@ -1,5 +1,5 @@
 PODS:
-  - SAUtils (1.3.2)
+  - SAUtils (1.3.6)
 
 DEPENDENCIES:
   - SAUtils (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  SAUtils: 25e5ebb737ea0bb9c829e0a0e8b664ce3c810a2a
+  SAUtils: 4240827aade373be1216b3ac732c821333817bad
 
 PODFILE CHECKSUM: e9dfb21311829d4c5217aee3b78873e64af36806
 

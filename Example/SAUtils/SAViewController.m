@@ -12,6 +12,7 @@
 #import "SAPopup.h"
 #import "SAExtensions.h"
 #import "TestClass.h"
+#import "SAImageUtils.h"
 
 @interface SAViewController ()
 @end
@@ -62,6 +63,13 @@
     [SAUtils invoke:@"method4" onClass:@"ABC"];
 
     [self funcWithParam:[NSValue valueWithCGRect:CGRectMake(0,  5, 2, 3)]];
+    
+//    self.view.backgroundColor = [UIColor blueColor];
+//    
+//    UIImageView *imgv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//    [imgv setImage:[SAImageUtils gameWallBackground]];
+//    [self.view addSubview:imgv];
+    
 }
 
 - (void) funcWithParam:(id) param {
