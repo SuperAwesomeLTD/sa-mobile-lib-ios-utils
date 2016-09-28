@@ -50,6 +50,8 @@
     [imageString appendString:@"GfbpAHQAOkCGSbdqpAPQAegA1nRk2KcD0AHoABkm3aqRDpDcAf4AbuAOWc2aNWwA"];
     [imageString appendString:@"AAAASUVORK5CYII="];
     
+    NSData *imageData = [[NSData alloc] initWithBase64EncodedString:imageString options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    return [UIImage imageWithData:imageData];
 }
 
 + (UIImage*) padlockImage {
