@@ -84,7 +84,7 @@
             
             // only if it's a bool
             if ([type isEqualToString:@"B"]) {
-                if ([item performSelector:sel] == value) {
+                if ((BOOL)[item performSelector:sel] == value) {
                     [result addObject:item];
                 }
             }
