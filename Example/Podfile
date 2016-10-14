@@ -3,5 +3,10 @@ platform :ios, '7.0'
 
 target 'SAUtils_Example' do
   pod 'SAUtils', :path => '../'
+  
+  target 'SAUtils_Tests' do
+      inherit! :search_paths
+  end
+  
 end
 
