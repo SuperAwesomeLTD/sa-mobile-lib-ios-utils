@@ -48,7 +48,7 @@
     [super tearDown];
 }
 
-- (void) testFilterByName {
+- (void) testFilterByName1 {
     // when
     NSArray *expected = @[_t1];
     
@@ -61,7 +61,55 @@
     }
 }
 
-- (void) testFilterByBool {
+- (void) testFilterByName2 {
+    // given
+    NSArray *given = nil;
+    
+    // when
+    NSArray *expected = nil;
+    
+    // then
+    NSArray *result = [given filterBy:@"name" withValue:@"John"];
+    
+    XCTAssertNil(result);
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void) testFilterByName3 {
+    // when
+    NSArray *expected = @[];
+    
+    // then
+    NSArray *result = [_testArray filterBy:@"NonExistentField" withValue:@"Johannes"];
+    
+    XCTAssertEqual(result.count, 0);
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void) testFilterByName4 {
+    // when
+    NSArray *expected = @[];
+    
+    // then
+    NSArray *result = [_testArray filterBy:@"name" withValue:@"NonExistentName"];
+    
+    XCTAssertEqual(result.count, 0);
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void) testFilterByName5 {
+    // when
+    NSArray *expected = @[];
+    
+    // then
+    NSArray *result = [_testArray filterBy:@"isOK" withValue:@"John"];
+    
+    XCTAssertEqual(result.count, 0);
+    XCTAssertEqualObjects(result, expected);
+    
+}
+
+- (void) testFilterByBool1 {
     // when
     NSArray *expected = @[_t2, _t3];
     
@@ -74,7 +122,43 @@
     }
 }
 
-- (void) testRemoveAllButFirst {
+- (void) testFilterByBool2 {
+    // given
+    NSArray *given = nil;
+    
+    // when
+    NSArray *expected = nil;
+    
+    // then
+    NSArray *result = [given filterBy:@"isOK" withBool:false];
+    
+    XCTAssertNil(result);
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void) testFilterByBool3 {
+    // when
+    NSArray *expected = @[];
+    
+    // then
+    NSArray *result = [_testArray filterBy:@"NonExistentField" withBool:false];
+    
+    XCTAssertEqual(result.count, 0);
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void) testFilterByBool4 {
+    // when
+    NSArray *expected = @[];
+    
+    // then
+    NSArray *result = [_testArray filterBy:@"name" withBool:false];
+    
+    XCTAssertEqual(result.count, 0);
+    XCTAssertEqualObjects(result, expected);
+}
+
+- (void) testRemoveAllButFirst1 {
     // when
     NSArray *expected = @[_t1];
     
@@ -86,6 +170,20 @@
     for (int i = 0; i < result.count; i++) {
         XCTAssertEqualObjects(result[i], expected[i]);
     }
+}
+
+- (void) testRemoveAllButFirst2 {
+    // given
+    NSArray *given = nil;
+    
+    // when
+    NSArray *expected = nil;
+    
+    // then
+    NSArray *result = [given removeAllButFirstElement];
+    
+    XCTAssertNil(result);
+    XCTAssertEqualObjects(result, expected);
 }
 
 @end

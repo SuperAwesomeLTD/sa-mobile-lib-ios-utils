@@ -86,6 +86,10 @@
 }
 
 + (NSString*) findSubstringFrom:(NSString*)source betweenStart:(NSString*)start andEnd:(NSString*)end {
+    // do a nil check at the start
+    if (source == nil || start == nil || end == nil) return nil;
+    
+    // start the process
     NSRange startRange = [source rangeOfString:start];
     if (startRange.location != NSNotFound) {
         NSRange targetRange;
@@ -98,6 +102,7 @@
         }
     }
     
+    // if no correct result up until here, just return nil
     return nil;
 }
 

@@ -70,7 +70,7 @@
     XCTAssertEqual( result2 , expected2);
 }
 
-- (void) testFindSubstring {
+- (void) testFindSubstring1 {
     // given
     NSString *source = @"New test string with a number of words in it";
     NSString *start = @"string";
@@ -82,6 +82,51 @@
     // then
     NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
     XCTAssertTrue([result isEqualToString:expected]);
+}
+
+- (void) testFindSubstring2 {
+    // given
+    NSString *source = @"New test string with a number of words in it";
+    NSString *start = nil;
+    NSString *end = @"words";
+    
+    // when
+    NSString *expected = nil;
+    
+    // then
+    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
+    XCTAssertNil(result);
+    XCTAssertEqual(result, expected);
+}
+
+- (void) testFindSubstring3 {
+    // given
+    NSString *source = @"New test string with a number of words in it";
+    NSString *start = @"alfalfa";
+    NSString *end = @"words";
+    
+    // when
+    NSString *expected = nil;
+    
+    // then
+    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
+    XCTAssertNil(result);
+    XCTAssertEqual(result, expected);
+}
+
+- (void) testFindSubstring4 {
+    // given
+    NSString *source = nil;
+    NSString *start = @"alfalfa";
+    NSString *end = @"words";
+    
+    // when
+    NSString *expected = nil;
+    
+    // then
+    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
+    XCTAssertNil(result);
+    XCTAssertEqual(result, expected);
 }
 
 - (void) testGenerateUniqueKey {
