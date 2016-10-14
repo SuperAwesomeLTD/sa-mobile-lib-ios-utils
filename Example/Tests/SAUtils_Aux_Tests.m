@@ -64,10 +64,10 @@
     
     // then
     NSInteger result = [SAUtils randomNumberBetween:lower maxNumber:upper];
-    BOOL result1 = result < upper;
+    BOOL result1 = result <= upper;
     BOOL result2 = result >= upper;
-    XCTAssertEqual( result1 , expected1);
-    XCTAssertEqual( result2 , expected2);
+    XCTAssertEqual(result1 ,expected1);
+    XCTAssertEqual(result2 ,expected2);
 }
 
 - (void) testFindSubstring1 {
