@@ -13,28 +13,24 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 
-// constants with user agents
-#define iOS_Mobile_UserAgent @"Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B350 Safari/8536.25";
-#define iOS_Tablet_UserAgent @"Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53";
-
 @implementation SAUtils
 
 ////////////////////////////////////////////////////////////////////////////////
 // Trully aux functions
 ////////////////////////////////////////////////////////////////////////////////
 
-+ (CGRect) mapOldFrame:(CGRect)frame toNewFrame:(CGRect)oldframe {
++ (CGRect) mapOldFrame:(CGRect)oldframe toNewFrame:(CGRect)frame {
     
-    CGFloat newW = frame.size.width;
-    CGFloat newH = frame.size.height;
     CGFloat oldW = oldframe.size.width;
     CGFloat oldH = oldframe.size.height;
+    CGFloat newW = frame.size.width;
+    CGFloat newH = frame.size.height;
+    
     if (oldW == 1 || oldW == 0) { oldW = newW; }
     if (oldH == 1 || oldH == 0) { oldH = newH; }
     
     CGFloat oldR = oldW / oldH;
     CGFloat newR = newW / newH;
-    
     CGFloat X = 0, Y = 0, W = 0, H = 0;
     
     if (oldR > newR) {
@@ -50,7 +46,7 @@
         X = (newW - W) / 2.0f;
     }
     
-    return CGRectMake(X, Y, W, H);
+    return CGRectMake((NSInteger)X, (NSInteger)Y, (NSInteger)W, (NSInteger)H);
 }
 
 + (BOOL) isRect:(CGRect)target inRect:(CGRect)frame {

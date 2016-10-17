@@ -29,8 +29,7 @@
     CGRect newframe = CGRectMake(0, 0, 200, 100);
     
     // when
-    CGRect expected = CGRectMake(95, 0, 90, 45);
-    
+    CGRect expected = CGRectMake(0, 33, 200, 32);
     // then
     CGRect result = [SAUtils mapOldFrame:oldframe toNewFrame:newframe];
     XCTAssert(CGRectEqualToRect(result, expected));
@@ -38,17 +37,17 @@
 
 - (void) testRectInRect {
     // given
-    CGRect child1 = CGRectMake(0, 250, 320, 45);
-    CGRect child2 = CGRectMake(-23, 720, 250, 45);
-    CGRect screen = CGRectMake(0, 0, 320, 684);
+    CGRect given1 = CGRectMake(0, 250, 320, 45);
+    CGRect given2 = CGRectMake(-23, 720, 250, 45);
+    CGRect given3 = CGRectMake(0, 0, 320, 684);
     
     // when
     BOOL expected1 = true;
     BOOL expected2 = false;
     
     // then
-    BOOL result1 = [SAUtils isRect:child1 inRect:screen];
-    BOOL result2 = [SAUtils isRect:child2 inRect:screen];
+    BOOL result1 = [SAUtils isRect:given1 inRect:given3];
+    BOOL result2 = [SAUtils isRect:given2 inRect:given3];
     XCTAssertEqual(result1, expected1);
     XCTAssertEqual(result2, expected2);
 }
@@ -150,8 +149,8 @@
         }
         
         if (hasFound) {
-            break;
             allUniques = false;
+            break;
         }
     }
     

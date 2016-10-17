@@ -9,10 +9,10 @@
 #import <XCTest/XCTest.h>
 #import "SAUtils.h"
 
-@interface SASAUtils_Colors_Tests : XCTestCase
+@interface SAUtils_Colors_Tests : XCTestCase
 @end
 
-@implementation SASAUtils_Colors_Tests
+@implementation SAUtils_Colors_Tests
 
 - (void)setUp {
     [super setUp];
