@@ -159,6 +159,10 @@
 }
 
 + (NSString*) encodeURI:(NSString*)stringToEncode {
+    // null check
+    if (stringToEncode == nil || [stringToEncode isEqualToString:@""]) return @"";
+    
+    // uri encoding 
     return CFBridgingRelease(
         CFURLCreateStringByAddingPercentEscapes(
             NULL,
@@ -184,6 +188,10 @@
 }
 
 + (NSString*) encodeJSONDictionaryFromNSDictionary:(NSDictionary *)dict {
+    // check for null-ness or emptyness
+    if (dict == NULL || [dict count] == 0) return @"%7B%7D";
+    
+    // go ahead and encode
     NSMutableString *stringJSON = [[NSMutableString alloc] init];
     NSMutableArray *jsonFields = [[NSMutableArray alloc] init];
     

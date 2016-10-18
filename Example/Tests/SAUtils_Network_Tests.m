@@ -67,20 +67,49 @@
                             @"client_id": @"client-111",
                             @"user_id": @(321)
                             };
+    NSDictionary *dict2 = @{};
+    NSDictionary *dict3 = nil;
+    
     // when
     NSString *expected = @"client_id=client-111&user_id=321";
+    NSString *expected2 = @"";
+    NSString *expected3 = @"";
     
     // then
     NSString *result = [SAUtils formGetQueryFromDict:dict];
+    NSString *result2 = [SAUtils formGetQueryFromDict:dict2];
+    NSString *result3 = [SAUtils formGetQueryFromDict:dict3];
     
     // test
     XCTAssertEqualObjects(result, expected);
+    XCTAssertEqualObjects(result2, expected2);
+    XCTAssertEqualObjects(result3, expected3);
     
 }
 
 - (void) testEncodeUri {
-    // @Todo
+    // given
+    NSString *given1 = @"https://s3-eu-west-1.amazonaws.com/sb-ads-video-transcoded/x7XkGy43vim5P1OpldlOUuxk2cuKsDSn.mp4";
+    NSString *given2 = @"";
+    NSString *given3 = nil;
+    NSString *given4 = @"https:/klsa9922:skllsa/2100921091/saas///";
     
+    // when
+    NSString *expected1 = @"https%3A%2F%2Fs3-eu-west-1.amazonaws.com%2Fsb-ads-video-transcoded%2Fx7XkGy43vim5P1OpldlOUuxk2cuKsDSn.mp4";
+    NSString *expected2 = @"";
+    NSString *expected3 = @"";
+    NSString *expected4 = @"https%3A%2Fklsa9922%3Askllsa%2F2100921091%2Fsaas%2F%2F%2F";
+    
+    // then
+    NSString *result1 = [SAUtils encodeURI:given1];
+    NSString *result2 = [SAUtils encodeURI:given2];
+    NSString *result3 = [SAUtils encodeURI:given3];
+    NSString *result4 = [SAUtils encodeURI:given4];
+    
+    XCTAssertEqualObjects(result1, expected1);
+    XCTAssertEqualObjects(result2, expected2);
+    XCTAssertEqualObjects(result3, expected3);
+    XCTAssertEqualObjects(result4, expected4);
 }
 
 - (void) testEncodeJSONDictionaryFromNSDictionary {
@@ -90,19 +119,23 @@
                            @"client_id": @"client-111",
                            @"user_id": @(321)
                            };
-    NSDictionary *dict2 = nil;
+    NSDictionary *dict2 = @{};
+    NSDictionary *dict3 = nil;
     
     // when
     NSString *expected = @"%7B%22client_id%22%3A%22client-111%22%2C%22user_id%22%3A321%7D";
-    NSString *expected2 = @"";
+    NSString *expected2 = @"%7B%7D";
+    NSString *expected3 = @"%7B%7D";
     
     // then
     NSString *result = [SAUtils encodeJSONDictionaryFromNSDictionary:dict];
     NSString *result2 = [SAUtils encodeJSONDictionaryFromNSDictionary:dict2];
+    NSString *result3 = [SAUtils encodeJSONDictionaryFromNSDictionary:dict3];
     
     // test
     XCTAssertEqualObjects(result, expected);
     XCTAssertEqualObjects(result2, expected2);
+    XCTAssertEqualObjects(result3, expected3);
     
 }
 
@@ -124,11 +157,11 @@
     BOOL result5 = [SAUtils isValidURL:given5];
     
     // test
-    XCTAssertEqual(result1, true);
-    XCTAssertEqual(result2, false);
-    XCTAssertEqual(result3, false);
-    XCTAssertEqual(result4, false);
-    XCTAssertEqual(result5, true);
+    XCTAssertTrue(result1);
+    XCTAssertFalse(result2);
+    XCTAssertFalse(result3);
+    XCTAssertFalse(result4);
+    XCTAssertTrue(result5);
 }
 
 - (void) testIsValidEmail {
@@ -149,11 +182,11 @@
     BOOL result5 = [SAUtils isEmailValid:given5];
     
     // test
-    XCTAssertEqual(result1, true);
-    XCTAssertEqual(result2, false);
-    XCTAssertEqual(result3, false);
-    XCTAssertEqual(result4, false);
-    XCTAssertEqual(result5, true);
+    XCTAssertTrue(result1);
+    XCTAssertFalse(result2);
+    XCTAssertFalse(result3);
+    XCTAssertFalse(result4);
+    XCTAssertTrue(result5);
 }
 
 - (void) testBaseURLFromResourceURL {
