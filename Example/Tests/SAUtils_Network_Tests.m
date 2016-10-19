@@ -25,8 +25,16 @@
 
 - (void) testUserAgent {
     // can't test more than making sure the user agent is never nil, atm
-    NSString *result = [SAUtils getUserAgent];
-    XCTAssertNotNil(result);
+    NSString *userAgent = [SAUtils getUserAgent];
+    
+    XCTAssertNotNil(userAgent);
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
+        XCTAssertTrue([userAgent rangeOfString:@"iPad"].location > 0);
+    } else {
+        XCTAssertTrue([userAgent rangeOfString:@"iPhone"].location > 0);
+    }
+    
 }
 
 - (void) testCachebuster {

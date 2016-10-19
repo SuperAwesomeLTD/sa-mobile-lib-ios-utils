@@ -30,7 +30,7 @@
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
         XCTAssertEqual(size, size_tablet);
     } else {
-        XCTAssertEqual(size, size_mobile);
+        XCTAssertEqual(size, size_phone);
     }
 }
 

@@ -125,13 +125,13 @@
 
 + (SASystemSize) getSystemSize {
     BOOL isIpad = [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"];
-    return (isIpad ? size_tablet : size_mobile);
+    return (isIpad ? size_tablet : size_phone);
 }
 
 + (NSString*) getVerboseSystemDetails {
     switch ([self getSystemSize]) {
         case size_tablet: return @"ios_tablet";
-        case size_mobile: return @"ios_mobile";
+        case size_phone: return @"ios_mobile";
     }
 }
 
