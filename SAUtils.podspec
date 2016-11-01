@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SAUtils"
-  s.version          = "1.4.4"
+  s.version          = "1.4.5"
 
   s.summary          = "General collection of SuperAwesome Utility functions for iOS"
   s.description      = <<-DESC
