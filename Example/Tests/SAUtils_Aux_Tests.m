@@ -31,7 +31,7 @@
     // when
     CGRect expected = CGRectMake(0, 33, 200, 32);
     // then
-    CGRect result = [SAAux mapOldFrame:oldframe toNewFrame:newframe];
+    CGRect result = [SAUtils mapOldFrame:oldframe toNewFrame:newframe];
     XCTAssert(CGRectEqualToRect(result, expected));
 }
 
@@ -46,8 +46,8 @@
     BOOL expected2 = false;
     
     // then
-    BOOL result1 = [SAAux isRect:given1 inRect:given3];
-    BOOL result2 = [SAAux isRect:given2 inRect:given3];
+    BOOL result1 = [SAUtils isRect:given1 inRect:given3];
+    BOOL result2 = [SAUtils isRect:given2 inRect:given3];
     XCTAssertEqual(result1, expected1);
     XCTAssertEqual(result2, expected2);
 }
@@ -62,7 +62,7 @@
     BOOL expected2 = false;
     
     // then
-    NSInteger result = [SAAux randomNumberBetween:lower maxNumber:upper];
+    NSInteger result = [SAUtils randomNumberBetween:lower maxNumber:upper];
     BOOL result1 = result <= upper;
     BOOL result2 = result >= upper;
     XCTAssertEqual(result1 ,expected1);
@@ -79,7 +79,7 @@
     NSString *expected = @" with a number of ";
     
     // then
-    NSString *result = [SAAux findSubstringFrom:source betweenStart:start andEnd:end];
+    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
     XCTAssertTrue([result isEqualToString:expected]);
 }
 
@@ -93,7 +93,7 @@
     NSString *expected = nil;
     
     // then
-    NSString *result = [SAAux findSubstringFrom:source betweenStart:start andEnd:end];
+    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
     XCTAssertNil(result);
     XCTAssertEqual(result, expected);
 }
@@ -108,7 +108,7 @@
     NSString *expected = nil;
     
     // then
-    NSString *result = [SAAux findSubstringFrom:source betweenStart:start andEnd:end];
+    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
     XCTAssertNil(result);
     XCTAssertEqual(result, expected);
 }
@@ -123,7 +123,7 @@
     NSString *expected = nil;
     
     // then
-    NSString *result = [SAAux findSubstringFrom:source betweenStart:start andEnd:end];
+    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
     XCTAssertNil(result);
     XCTAssertEqual(result, expected);
 }
@@ -133,7 +133,7 @@
     NSInteger bound = 100;
     NSMutableArray *uniqueKeys = [@[] mutableCopy];
     for (int i = 0; i < bound; i++) {
-        [uniqueKeys addObject:[SAAux generateUniqueKey]];
+        [uniqueKeys addObject:[SAUtils generateUniqueKey]];
     }
     
     // when
