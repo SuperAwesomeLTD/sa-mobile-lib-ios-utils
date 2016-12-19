@@ -25,7 +25,7 @@
 
 - (void) testUserAgent {
     // can't test more than making sure the user agent is never nil, atm
-    NSString *userAgent = [SAUtils getUserAgent];
+    NSString *userAgent = [SAAux getUserAgent];
     
     XCTAssertNotNil(userAgent);
     
@@ -42,7 +42,7 @@
     NSInteger bound = 10;
     NSMutableArray *uniqueIntegers = [@[] mutableCopy];
     for (int i = 0; i < bound; i++) {
-        [uniqueIntegers addObject:@([SAUtils getCachebuster])];
+        [uniqueIntegers addObject:@([SAAux getCachebuster])];
     }
     
     // when
@@ -84,9 +84,9 @@
     NSString *expected3 = @"";
     
     // then
-    NSString *result = [SAUtils formGetQueryFromDict:dict];
-    NSString *result2 = [SAUtils formGetQueryFromDict:dict2];
-    NSString *result3 = [SAUtils formGetQueryFromDict:dict3];
+    NSString *result = [SAAux formGetQueryFromDict:dict];
+    NSString *result2 = [SAAux formGetQueryFromDict:dict2];
+    NSString *result3 = [SAAux formGetQueryFromDict:dict3];
     
     // test
     XCTAssertEqualObjects(result, expected);
@@ -109,10 +109,10 @@
     NSString *expected4 = @"https%3A%2Fklsa9922%3Askllsa%2F2100921091%2Fsaas%2F%2F%2F";
     
     // then
-    NSString *result1 = [SAUtils encodeURI:given1];
-    NSString *result2 = [SAUtils encodeURI:given2];
-    NSString *result3 = [SAUtils encodeURI:given3];
-    NSString *result4 = [SAUtils encodeURI:given4];
+    NSString *result1 = [SAAux encodeURI:given1];
+    NSString *result2 = [SAAux encodeURI:given2];
+    NSString *result3 = [SAAux encodeURI:given3];
+    NSString *result4 = [SAAux encodeURI:given4];
     
     XCTAssertEqualObjects(result1, expected1);
     XCTAssertEqualObjects(result2, expected2);
@@ -136,9 +136,9 @@
     NSString *expected3 = @"%7B%7D";
     
     // then
-    NSString *result = [SAUtils encodeJSONDictionaryFromNSDictionary:dict];
-    NSString *result2 = [SAUtils encodeJSONDictionaryFromNSDictionary:dict2];
-    NSString *result3 = [SAUtils encodeJSONDictionaryFromNSDictionary:dict3];
+    NSString *result = [SAAux encodeJSONDictionaryFromNSDictionary:dict];
+    NSString *result2 = [SAAux encodeJSONDictionaryFromNSDictionary:dict2];
+    NSString *result3 = [SAAux encodeJSONDictionaryFromNSDictionary:dict3];
     
     // test
     XCTAssertEqualObjects(result, expected);
@@ -158,11 +158,11 @@
     // when
     
     // then
-    BOOL result1 = [SAUtils isValidURL:given1];
-    BOOL result2 = [SAUtils isValidURL:given2];
-    BOOL result3 = [SAUtils isValidURL:given3];
-    BOOL result4 = [SAUtils isValidURL:given4];
-    BOOL result5 = [SAUtils isValidURL:given5];
+    BOOL result1 = [SAAux isValidURL:given1];
+    BOOL result2 = [SAAux isValidURL:given2];
+    BOOL result3 = [SAAux isValidURL:given3];
+    BOOL result4 = [SAAux isValidURL:given4];
+    BOOL result5 = [SAAux isValidURL:given5];
     
     // test
     XCTAssertTrue(result1);
@@ -183,11 +183,11 @@
     // then
     
     // test
-    BOOL result1 = [SAUtils isEmailValid:given1];
-    BOOL result2 = [SAUtils isEmailValid:given2];
-    BOOL result3 = [SAUtils isEmailValid:given3];
-    BOOL result4 = [SAUtils isEmailValid:given4];
-    BOOL result5 = [SAUtils isEmailValid:given5];
+    BOOL result1 = [SAAux isEmailValid:given1];
+    BOOL result2 = [SAAux isEmailValid:given2];
+    BOOL result3 = [SAAux isEmailValid:given3];
+    BOOL result4 = [SAAux isEmailValid:given4];
+    BOOL result5 = [SAAux isEmailValid:given5];
     
     // test
     XCTAssertTrue(result1);
@@ -213,11 +213,11 @@
     NSString *expected5 = nil;
     
     // then
-    NSString *result1 = [SAUtils findBaseURLFromResourceURL:given1];
-    NSString *result2 = [SAUtils findBaseURLFromResourceURL:given2];
-    NSString *result3 = [SAUtils findBaseURLFromResourceURL:given3];
-    NSString *result4 = [SAUtils findBaseURLFromResourceURL:given4];
-    NSString *result5 = [SAUtils findBaseURLFromResourceURL:given5];
+    NSString *result1 = [SAAux findBaseURLFromResourceURL:given1];
+    NSString *result2 = [SAAux findBaseURLFromResourceURL:given2];
+    NSString *result3 = [SAAux findBaseURLFromResourceURL:given3];
+    NSString *result4 = [SAAux findBaseURLFromResourceURL:given4];
+    NSString *result5 = [SAAux findBaseURLFromResourceURL:given5];
     
     XCTAssertTrue([result1 isEqualToString:expected1]);
     XCTAssertTrue([result2 isEqualToString:expected2]);

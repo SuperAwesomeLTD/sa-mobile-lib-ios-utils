@@ -24,7 +24,7 @@
 
 - (void) testSystemSize {
     // given
-    SASystemSize size = [SAUtils getSystemSize];
+    SASystemSize size = [SAAux getSystemSize];
     
     // then
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
@@ -36,7 +36,7 @@
 
 - (void) testVerboseSystemDetails {
     // given
-    NSString *details = [SAUtils getVerboseSystemDetails];
+    NSString *details = [SAAux getVerboseSystemDetails];
     
     // then
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
@@ -57,9 +57,9 @@
     NSString *path3 = [NSString stringWithFormat:@"%@", documentPath];
     
     // then
-    NSString *tpath1 = [SAUtils filePathInDocuments:@"abc.txt"];
-    NSString *tpath2 = [SAUtils filePathInDocuments:@"tef"];
-    NSString *tpath3 = [SAUtils filePathInDocuments:nil];
+    NSString *tpath1 = [SAAux filePathInDocuments:@"abc.txt"];
+    NSString *tpath2 = [SAAux filePathInDocuments:@"tef"];
+    NSString *tpath3 = [SAAux filePathInDocuments:nil];
     
     XCTAssertEqualObjects(path1, tpath1);
     XCTAssertEqualObjects(path2, tpath2);
