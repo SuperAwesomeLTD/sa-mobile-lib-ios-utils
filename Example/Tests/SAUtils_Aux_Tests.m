@@ -31,7 +31,7 @@
     // when
     CGRect expected = CGRectMake(0, 33, 200, 32);
     // then
-    CGRect result = [SAUtils mapOldFrame:oldframe toNewFrame:newframe];
+    CGRect result = [SAUtils map:oldframe into:newframe];
     XCTAssert(CGRectEqualToRect(result, expected));
 }
 
@@ -79,7 +79,7 @@
     NSString *expected = @" with a number of ";
     
     // then
-    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
+    NSString *result = [SAUtils substringIn:source from:start to:end];
     XCTAssertTrue([result isEqualToString:expected]);
 }
 
@@ -93,7 +93,7 @@
     NSString *expected = nil;
     
     // then
-    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
+    NSString *result = [SAUtils substringIn:source from:start to:end];
     XCTAssertNil(result);
     XCTAssertEqual(result, expected);
 }
@@ -108,7 +108,7 @@
     NSString *expected = nil;
     
     // then
-    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
+    NSString *result = [SAUtils substringIn:source from:start to:end];
     XCTAssertNil(result);
     XCTAssertEqual(result, expected);
 }
@@ -123,7 +123,7 @@
     NSString *expected = nil;
     
     // then
-    NSString *result = [SAUtils findSubstringFrom:source betweenStart:start andEnd:end];
+    NSString *result = [SAUtils substringIn:source from:start to:end];
     XCTAssertNil(result);
     XCTAssertEqual(result, expected);
 }
