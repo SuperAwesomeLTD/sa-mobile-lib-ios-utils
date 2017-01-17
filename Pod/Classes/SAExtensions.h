@@ -98,6 +98,6 @@
  *
  * @return a cleaned string, without any HTML entities
  */
-- (NSString*) stringByDecodingHTMLEntities;
+- (NSString* _Nonnull) stringByDecodingHTMLEntities;
 
 @end
