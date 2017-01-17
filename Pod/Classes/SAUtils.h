@@ -17,10 +17,10 @@
  *  - phone: the SDK determined it's a phone-type device
  *  - tablet: the SDK determined it's a tablet-type device
  */
-typedef enum SASystemSize {
+typedef NS_ENUM (NSInteger, SASystemSize) {
     size_phone  = 0,
     size_tablet = 1
-}SASystemSize;
+};
 
 /**
  * SAUtils enum defining possible connection types
@@ -29,7 +29,7 @@ typedef enum SASystemSize {
  *  - wifi
  *  - cellular_unknown, 2g, 3g, 4g,
  */
-typedef enum SAConnectionType {
+typedef NS_ENUM (NSInteger, SAConnectionType) {
     unknown          = 0,
     ethernet         = 1,
     wifi             = 2,
@@ -37,7 +37,7 @@ typedef enum SAConnectionType {
     cellular_2g      = 4,
     cellular_3g      = 5,
     cellular_4g      = 6
-} SAConnectionType;
+};
 
 @interface SAUtils : NSObject
 
