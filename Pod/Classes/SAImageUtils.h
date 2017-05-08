@@ -24,8 +24,6 @@
  */
 + (UIImage*) padlockImage;
 
-+ (UIImage*) padlockImage2;
-
 /**
  * Static method that returns a "game wall background" image from a string
  *
