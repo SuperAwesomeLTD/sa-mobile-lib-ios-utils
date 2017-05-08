@@ -7,6 +7,7 @@
 //
 
 #import "SAViewController.h"
+#import "SAImageUtils.h"
 
 @interface SAViewController ()
 @end
@@ -17,9 +18,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    UIImage *image = [UIImage imageNamed:@"background"];
-    NSString *str = [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-    NSLog(@"%@", str);
+    UIImageView *imgv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 250, 80)];
+    imgv.image = [SAImageUtils padlockImage2];
+    [self.view addSubview:imgv];
 }
 
 - (void)didReceiveMemoryWarning {
