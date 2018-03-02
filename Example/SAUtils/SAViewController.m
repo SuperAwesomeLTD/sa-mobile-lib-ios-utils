@@ -7,7 +7,7 @@
 //
 
 #import "SAViewController.h"
-#import "SAImageUtils.h"
+#import "SAAlert.h"
 
 @interface SAViewController ()
 @end
@@ -18,9 +18,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    UIImageView *imgv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 250, 80)];
-    imgv.image = [SAImageUtils padlockImage2];
-    [self.view addSubview:imgv];
+    [[SAAlert getInstance] showWithTitle:@"My title"
+                              andMessage:@"Message"
+                              andOKTitle:@"OK"
+                             andNOKTitle:nil
+                            andTextField:false
+                         andKeyboardTyle:UIKeyboardTypeDefault
+                              andPressed:^(int button, NSString *popupMessage) {
+                                  NSLog(@"Clicked on %d", button);
+                              }];
 }
 
 - (void)didReceiveMemoryWarning {
