@@ -5,10 +5,18 @@
 //  Created by Gabriel Coman on 02/09/2016.
 //  Copyright © 2016 Gabriel Coman. All rights reserved.
 //
+#import "MockModel.h"
 
-#import "TestClass.h"
+@implementation MockModel
 
-@implementation TestClass
+- (id) initWithName:(NSString *)name andIsOK:(BOOL)isOK andPay:(NSInteger)pay{
+    if (self = [super init]) {
+        _name = name;
+        _isOK = isOK;
+        _pay = pay;
+    }
+    return self;
+}
 
 - (void) method1 {
     NSLog(@"Method 1");

@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B5363A91DAFF2BB006A1AD3 /* SAUtils_Colors_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5363A81DAFF2BB006A1AD3 /* SAUtils_Colors_Tests.m */; };
-		1B5363AB1DB0CEB4006A1AD3 /* SAUtils_ArrayExt_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5363AA1DB0CEB4006A1AD3 /* SAUtils_ArrayExt_Tests.m */; };
-		1BA9F1011D79C6A6002150A7 /* TestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9F1001D79C6A6002150A7 /* TestClass.m */; };
-		1BE90C801D09745900F38E6D /* SAUtils_Aux_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C7F1D09745900F38E6D /* SAUtils_Aux_Tests.m */; };
-		1BE90C821D09746900F38E6D /* SAUtils_System_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C811D09746900F38E6D /* SAUtils_System_Tests.m */; };
-		1BE90C841D09747E00F38E6D /* SAUtils_Network_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C831D09747E00F38E6D /* SAUtils_Network_Tests.m */; };
+		1B1C43A9209B1918003EE3DA /* MockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9F1001D79C6A6002150A7 /* MockModel.m */; };
+		1B1C43B2209B1B69003EE3DA /* TestSAUtils_GetUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43B1209B1B69003EE3DA /* TestSAUtils_GetUserAgent.m */; };
+		1B1C43B4209B1B8F003EE3DA /* TestSAUtils_GetCachebuster.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43B3209B1B8F003EE3DA /* TestSAUtils_GetCachebuster.m */; };
+		1B1C43B6209B1BB7003EE3DA /* TestSAUtils_FormGetQueryFromDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43B5209B1BB7003EE3DA /* TestSAUtils_FormGetQueryFromDict.m */; };
+		1B1C43B8209B1C5C003EE3DA /* TestSAUtils_EncodeURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43B7209B1C5C003EE3DA /* TestSAUtils_EncodeURI.m */; };
+		1B1C43BA209B1C79003EE3DA /* TestSAUtils_EncodeJSONDictionaryFromNSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43B9209B1C79003EE3DA /* TestSAUtils_EncodeJSONDictionaryFromNSDictionary.m */; };
+		1B1C43BC209B1C94003EE3DA /* TestSAUtils_IsValidURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43BB209B1C94003EE3DA /* TestSAUtils_IsValidURL.m */; };
+		1B1C43BE209B1CBD003EE3DA /* TestSAUtils_IsEmailValid.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43BD209B1CBD003EE3DA /* TestSAUtils_IsEmailValid.m */; };
+		1B1C43C0209B1CF8003EE3DA /* TestSAUtils_RemoveAllButFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43BF209B1CF8003EE3DA /* TestSAUtils_RemoveAllButFirst.m */; };
+		1B1C43C2209B1D58003EE3DA /* TestSAUtils_GetVerboseSystemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43C1209B1D58003EE3DA /* TestSAUtils_GetVerboseSystemDetails.m */; };
+		1B1C43C4209B1D7A003EE3DA /* TestSAUtils_FilePathInDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43C3209B1D7A003EE3DA /* TestSAUtils_FilePathInDocuments.m */; };
+		1B1C43C6209B1DA9003EE3DA /* TestSAUtils_UIColorFromRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43C5209B1DA9003EE3DA /* TestSAUtils_UIColorFromRGB.m */; };
+		1B1C43C8209B1DE9003EE3DA /* TestSAUtils_MapInto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43C7209B1DE9003EE3DA /* TestSAUtils_MapInto.m */; };
+		1B1C43CA209B1E0B003EE3DA /* TestSAUtils_IsRectInRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43C9209B1E0B003EE3DA /* TestSAUtils_IsRectInRect.m */; };
+		1B1C43CC209B1E29003EE3DA /* TestSAUtils_RandomNumberBetween.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43CB209B1E29003EE3DA /* TestSAUtils_RandomNumberBetween.m */; };
+		1B1C43CE209B1E4E003EE3DA /* TestSAUtils_GenerateUniqueKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C43CD209B1E4E003EE3DA /* TestSAUtils_GenerateUniqueKey.m */; };
+		1B5363A91DAFF2BB006A1AD3 /* TestSAUtils_UIColorFromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5363A81DAFF2BB006A1AD3 /* TestSAUtils_UIColorFromHex.m */; };
+		1B5363AB1DB0CEB4006A1AD3 /* TestSAUtils_FilterBy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5363AA1DB0CEB4006A1AD3 /* TestSAUtils_FilterBy.m */; };
+		1BE90C801D09745900F38E6D /* TestSAUtils_FindSubstring.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C7F1D09745900F38E6D /* TestSAUtils_FindSubstring.m */; };
+		1BE90C821D09746900F38E6D /* TestSAUtils_GetSystemSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C811D09746900F38E6D /* TestSAUtils_GetSystemSize.m */; };
+		1BE90C841D09747E00F38E6D /* TestSAUtils_FindBaseURLFromResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE90C831D09747E00F38E6D /* TestSAUtils_FindBaseURLFromResource.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -42,13 +57,28 @@
 
 /* Begin PBXFileReference section */
 		0FB8D00D5E0F117F747ECFAC /* Pods-SAUtils_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAUtils_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAUtils_Tests/Pods-SAUtils_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		1B5363A81DAFF2BB006A1AD3 /* SAUtils_Colors_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUtils_Colors_Tests.m; sourceTree = "<group>"; };
-		1B5363AA1DB0CEB4006A1AD3 /* SAUtils_ArrayExt_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUtils_ArrayExt_Tests.m; sourceTree = "<group>"; };
-		1BA9F0FF1D79C6A6002150A7 /* TestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestClass.h; sourceTree = "<group>"; };
-		1BA9F1001D79C6A6002150A7 /* TestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestClass.m; sourceTree = "<group>"; };
-		1BE90C7F1D09745900F38E6D /* SAUtils_Aux_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUtils_Aux_Tests.m; sourceTree = "<group>"; };
-		1BE90C811D09746900F38E6D /* SAUtils_System_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUtils_System_Tests.m; sourceTree = "<group>"; };
-		1BE90C831D09747E00F38E6D /* SAUtils_Network_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUtils_Network_Tests.m; sourceTree = "<group>"; };
+		1B1C43AA209B195A003EE3DA /* MockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockModel.h; sourceTree = "<group>"; };
+		1B1C43B1209B1B69003EE3DA /* TestSAUtils_GetUserAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_GetUserAgent.m; sourceTree = "<group>"; };
+		1B1C43B3209B1B8F003EE3DA /* TestSAUtils_GetCachebuster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_GetCachebuster.m; sourceTree = "<group>"; };
+		1B1C43B5209B1BB7003EE3DA /* TestSAUtils_FormGetQueryFromDict.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_FormGetQueryFromDict.m; sourceTree = "<group>"; };
+		1B1C43B7209B1C5C003EE3DA /* TestSAUtils_EncodeURI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_EncodeURI.m; sourceTree = "<group>"; };
+		1B1C43B9209B1C79003EE3DA /* TestSAUtils_EncodeJSONDictionaryFromNSDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_EncodeJSONDictionaryFromNSDictionary.m; sourceTree = "<group>"; };
+		1B1C43BB209B1C94003EE3DA /* TestSAUtils_IsValidURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_IsValidURL.m; sourceTree = "<group>"; };
+		1B1C43BD209B1CBD003EE3DA /* TestSAUtils_IsEmailValid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_IsEmailValid.m; sourceTree = "<group>"; };
+		1B1C43BF209B1CF8003EE3DA /* TestSAUtils_RemoveAllButFirst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_RemoveAllButFirst.m; sourceTree = "<group>"; };
+		1B1C43C1209B1D58003EE3DA /* TestSAUtils_GetVerboseSystemDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_GetVerboseSystemDetails.m; sourceTree = "<group>"; };
+		1B1C43C3209B1D7A003EE3DA /* TestSAUtils_FilePathInDocuments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_FilePathInDocuments.m; sourceTree = "<group>"; };
+		1B1C43C5209B1DA9003EE3DA /* TestSAUtils_UIColorFromRGB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_UIColorFromRGB.m; sourceTree = "<group>"; };
+		1B1C43C7209B1DE9003EE3DA /* TestSAUtils_MapInto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_MapInto.m; sourceTree = "<group>"; };
+		1B1C43C9209B1E0B003EE3DA /* TestSAUtils_IsRectInRect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_IsRectInRect.m; sourceTree = "<group>"; };
+		1B1C43CB209B1E29003EE3DA /* TestSAUtils_RandomNumberBetween.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_RandomNumberBetween.m; sourceTree = "<group>"; };
+		1B1C43CD209B1E4E003EE3DA /* TestSAUtils_GenerateUniqueKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_GenerateUniqueKey.m; sourceTree = "<group>"; };
+		1B5363A81DAFF2BB006A1AD3 /* TestSAUtils_UIColorFromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_UIColorFromHex.m; sourceTree = "<group>"; };
+		1B5363AA1DB0CEB4006A1AD3 /* TestSAUtils_FilterBy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_FilterBy.m; sourceTree = "<group>"; };
+		1BA9F1001D79C6A6002150A7 /* MockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockModel.m; sourceTree = "<group>"; };
+		1BE90C7F1D09745900F38E6D /* TestSAUtils_FindSubstring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_FindSubstring.m; sourceTree = "<group>"; };
+		1BE90C811D09746900F38E6D /* TestSAUtils_GetSystemSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_GetSystemSize.m; sourceTree = "<group>"; };
+		1BE90C831D09747E00F38E6D /* TestSAUtils_FindBaseURLFromResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSAUtils_FindBaseURLFromResource.m; sourceTree = "<group>"; };
 		5A666A1FFA945B327B0F7095 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SAUtils_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAUtils_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +134,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1C43A8209B1892003EE3DA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1B1C43AA209B195A003EE3DA /* MockModel.h */,
+				1BA9F1001D79C6A6002150A7 /* MockModel.m */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+		1B1C43AB209B1B20003EE3DA /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				1B5363A81DAFF2BB006A1AD3 /* TestSAUtils_UIColorFromHex.m */,
+				1B1C43C5209B1DA9003EE3DA /* TestSAUtils_UIColorFromRGB.m */,
+			);
+			name = Colors;
+			sourceTree = "<group>";
+		};
+		1B1C43AC209B1B24003EE3DA /* Aux */ = {
+			isa = PBXGroup;
+			children = (
+				1BE90C7F1D09745900F38E6D /* TestSAUtils_FindSubstring.m */,
+				1B1C43C7209B1DE9003EE3DA /* TestSAUtils_MapInto.m */,
+				1B1C43C9209B1E0B003EE3DA /* TestSAUtils_IsRectInRect.m */,
+				1B1C43CB209B1E29003EE3DA /* TestSAUtils_RandomNumberBetween.m */,
+				1B1C43CD209B1E4E003EE3DA /* TestSAUtils_GenerateUniqueKey.m */,
+			);
+			name = Aux;
+			sourceTree = "<group>";
+		};
+		1B1C43AD209B1B28003EE3DA /* System */ = {
+			isa = PBXGroup;
+			children = (
+				1BE90C811D09746900F38E6D /* TestSAUtils_GetSystemSize.m */,
+				1B1C43C1209B1D58003EE3DA /* TestSAUtils_GetVerboseSystemDetails.m */,
+				1B1C43C3209B1D7A003EE3DA /* TestSAUtils_FilePathInDocuments.m */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		1B1C43AE209B1B2B003EE3DA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1BE90C831D09747E00F38E6D /* TestSAUtils_FindBaseURLFromResource.m */,
+				1B1C43B1209B1B69003EE3DA /* TestSAUtils_GetUserAgent.m */,
+				1B1C43B3209B1B8F003EE3DA /* TestSAUtils_GetCachebuster.m */,
+				1B1C43B5209B1BB7003EE3DA /* TestSAUtils_FormGetQueryFromDict.m */,
+				1B1C43B7209B1C5C003EE3DA /* TestSAUtils_EncodeURI.m */,
+				1B1C43B9209B1C79003EE3DA /* TestSAUtils_EncodeJSONDictionaryFromNSDictionary.m */,
+				1B1C43BB209B1C94003EE3DA /* TestSAUtils_IsValidURL.m */,
+				1B1C43BD209B1CBD003EE3DA /* TestSAUtils_IsEmailValid.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		1B1C43B0209B1B37003EE3DA /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				1B5363AA1DB0CEB4006A1AD3 /* TestSAUtils_FilterBy.m */,
+				1B1C43BF209B1CF8003EE3DA /* TestSAUtils_RemoveAllButFirst.m */,
+			);
+			name = Array;
+			sourceTree = "<group>";
+		};
 		44241EFE1FB8B3E1E7471444 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,8 +253,6 @@
 				6003F5A6195388D20070C39A /* SAViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
-				1BA9F0FF1D79C6A6002150A7 /* TestClass.h */,
-				1BA9F1001D79C6A6002150A7 /* TestClass.m */,
 			);
 			name = "Example for SAUtils";
 			path = SAUtils;
@@ -180,11 +272,12 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1B5363A81DAFF2BB006A1AD3 /* SAUtils_Colors_Tests.m */,
-				1BE90C7F1D09745900F38E6D /* SAUtils_Aux_Tests.m */,
-				1BE90C811D09746900F38E6D /* SAUtils_System_Tests.m */,
-				1BE90C831D09747E00F38E6D /* SAUtils_Network_Tests.m */,
-				1B5363AA1DB0CEB4006A1AD3 /* SAUtils_ArrayExt_Tests.m */,
+				1B1C43B0209B1B37003EE3DA /* Array */,
+				1B1C43AE209B1B2B003EE3DA /* Network */,
+				1B1C43AD209B1B28003EE3DA /* System */,
+				1B1C43AC209B1B24003EE3DA /* Aux */,
+				1B1C43AB209B1B20003EE3DA /* Colors */,
+				1B1C43A8209B1892003EE3DA /* Mocks */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -416,7 +509,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BA9F1011D79C6A6002150A7 /* TestClass.m in Sources */,
 				6003F59E195388D20070C39A /* SAAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SAViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -427,11 +519,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BE90C801D09745900F38E6D /* SAUtils_Aux_Tests.m in Sources */,
-				1BE90C821D09746900F38E6D /* SAUtils_System_Tests.m in Sources */,
-				1BE90C841D09747E00F38E6D /* SAUtils_Network_Tests.m in Sources */,
-				1B5363AB1DB0CEB4006A1AD3 /* SAUtils_ArrayExt_Tests.m in Sources */,
-				1B5363A91DAFF2BB006A1AD3 /* SAUtils_Colors_Tests.m in Sources */,
+				1B1C43C8209B1DE9003EE3DA /* TestSAUtils_MapInto.m in Sources */,
+				1B1C43C0209B1CF8003EE3DA /* TestSAUtils_RemoveAllButFirst.m in Sources */,
+				1B1C43B6209B1BB7003EE3DA /* TestSAUtils_FormGetQueryFromDict.m in Sources */,
+				1B1C43C4209B1D7A003EE3DA /* TestSAUtils_FilePathInDocuments.m in Sources */,
+				1B1C43A9209B1918003EE3DA /* MockModel.m in Sources */,
+				1B1C43CE209B1E4E003EE3DA /* TestSAUtils_GenerateUniqueKey.m in Sources */,
+				1B1C43BE209B1CBD003EE3DA /* TestSAUtils_IsEmailValid.m in Sources */,
+				1BE90C801D09745900F38E6D /* TestSAUtils_FindSubstring.m in Sources */,
+				1BE90C821D09746900F38E6D /* TestSAUtils_GetSystemSize.m in Sources */,
+				1BE90C841D09747E00F38E6D /* TestSAUtils_FindBaseURLFromResource.m in Sources */,
+				1B1C43B4209B1B8F003EE3DA /* TestSAUtils_GetCachebuster.m in Sources */,
+				1B1C43B8209B1C5C003EE3DA /* TestSAUtils_EncodeURI.m in Sources */,
+				1B1C43BA209B1C79003EE3DA /* TestSAUtils_EncodeJSONDictionaryFromNSDictionary.m in Sources */,
+				1B1C43CC209B1E29003EE3DA /* TestSAUtils_RandomNumberBetween.m in Sources */,
+				1B5363AB1DB0CEB4006A1AD3 /* TestSAUtils_FilterBy.m in Sources */,
+				1B5363A91DAFF2BB006A1AD3 /* TestSAUtils_UIColorFromHex.m in Sources */,
+				1B1C43CA209B1E0B003EE3DA /* TestSAUtils_IsRectInRect.m in Sources */,
+				1B1C43BC209B1C94003EE3DA /* TestSAUtils_IsValidURL.m in Sources */,
+				1B1C43B2209B1B69003EE3DA /* TestSAUtils_GetUserAgent.m in Sources */,
+				1B1C43C6209B1DA9003EE3DA /* TestSAUtils_UIColorFromRGB.m in Sources */,
+				1B1C43C2209B1D58003EE3DA /* TestSAUtils_GetVerboseSystemDetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 //
 
 #import "SAViewController.h"
-#import "SAAlert.h"
 
 @interface SAViewController ()
 @end
@@ -16,17 +15,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    [[SAAlert getInstance] showWithTitle:@"My title"
-                              andMessage:@"Message"
-                              andOKTitle:@"OK"
-                             andNOKTitle:nil
-                            andTextField:false
-                         andKeyboardTyle:UIKeyboardTypeDefault
-                              andPressed:^(int button, NSString *popupMessage) {
-                                  NSLog(@"Clicked on %d", button);
-                              }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,18 +1,18 @@
 //
-//  SAUtils_System_Tests.m
-//  SAUtils
+//  TestSAUtils_FilePathInDocuments.m
+//  SAUtils_Tests
 //
-//  Created by Gabriel Coman on 09/06/2016.
-//  Copyright © 2016 Gabriel Coman. All rights reserved.
+//  Created by Gabriel Coman on 03/05/2018.
+//  Copyright © 2018 Gabriel Coman. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "SAUtils.h"
 
-@interface SAUtils_System_Tests : XCTestCase
+@interface TestSAUtils_FilePathInDocuments : XCTestCase
 @end
 
-@implementation SAUtils_System_Tests
+@implementation TestSAUtils_FilePathInDocuments
 
 - (void)setUp {
     [super setUp];
@@ -22,31 +22,7 @@
     [super tearDown];
 }
 
-- (void) testSystemSize {
-    // given
-    SASystemSize size = [SAUtils getSystemSize];
-    
-    // then
-    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
-        XCTAssertEqual(size, size_tablet);
-    } else {
-        XCTAssertEqual(size, size_phone);
-    }
-}
-
-- (void) testVerboseSystemDetails {
-    // given
-    NSString *details = [SAUtils getVerboseSystemDetails];
-    
-    // then
-    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
-        XCTAssertEqualObjects(details, @"ios_tablet");
-    } else {
-        XCTAssertEqualObjects(details, @"ios_mobile");
-    }
-}
-
-- (void) testPathInDocuments {
+- (void) test_SAUtils_GetPathInDocuments {
     // given
     NSArray *documentsPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentPath = documentsPaths.firstObject;
